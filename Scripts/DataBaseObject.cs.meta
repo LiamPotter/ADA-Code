@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 17a0caa5e2163994e801f2f5c98f5a79
+timeCreated: 1457318777
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - oUIPrefab: {fileID: 155570, guid: 536873900b2e8874d81e935b24082480, type: 2}
+  - oUIObject: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
