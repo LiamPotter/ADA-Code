@@ -7,7 +7,7 @@ public class UIObjectDropdown : MonoBehaviour {
 
     //These are the variables of the actual UI elements themselves, not the text that they hold
     public RectTransform infoContainer;
-
+    public RectTransform invisUIPanel;
     public Text uIndexNumber;
     public Text uName;
     public Text uDescription;
@@ -70,17 +70,20 @@ public class UIObjectDropdown : MonoBehaviour {
         isOpen = !isOpen;
         completedMovement = false;
         iLockUse = interactLockTime;
-
+        float canvasBottom = 250;
+        invisUIPanel.offsetMin = new Vector2(invisUIPanel.offsetMin.x, invisUIPanel.offsetMin.y - (isOpen ? canvasBottom : -canvasBottom));
     }
     public void ToggleContainer()
     {
         Vector3 scale = infoContainer.localScale;
         scale.y = Mathf.Lerp(scale.y, isOpen ? 1 : 0, Time.deltaTime * 18);
         infoContainer.localScale = scale;
+       
     }
     public void FindAllNeededUIElements()
     {
         infoContainer = transform.FindChild("InfoContainer").GetComponent<RectTransform>();
+        invisUIPanel = GameObject.Find("DatabaseUIPanelInvis").GetComponent<RectTransform>();
         uIndexNumber = transform.FindChild("IndexLabel").GetComponent<Text>();
         uName = transform.FindChild("NameLabel").GetComponent<Text>();
         uDescription = infoContainer.transform.FindChild("Description").transform.GetChild(0).GetComponent<Text>();
@@ -93,7 +96,7 @@ public class UIObjectDropdown : MonoBehaviour {
     }
     public RectTransform MoveElementDown(RectTransform toMove,int indexN)
     {
-        int paddingInt = 100;
+        int paddingInt = 80;
         posChange= toMove.localPosition;
         Vector3 targetPos = new Vector3(posChange.x, posChange.y - paddingInt);
         //positionChange.y = Mathf.Lerp(positionChange.y, amountToMove-paddingInt*indexN, Time.deltaTime * 3f);
@@ -103,7 +106,7 @@ public class UIObjectDropdown : MonoBehaviour {
     }
     public RectTransform MoveElementUp(RectTransform toMove, int indexN)
     {
-        int paddingInt = 100;
+        int paddingInt = 80;
         posChange = toMove.localPosition;
         Vector3 targetPos = new Vector3(posChange.x, posChange.y + paddingInt);
         //positionChange.y = Mathf.Lerp(positionChange.y, amountToMove-paddingInt*indexN, Time.deltaTime * 3f);

@@ -84,7 +84,7 @@ public class DataBaseMain : MonoBehaviour {
             {
                 dObjectsMineralTemp.Add(dObjectsTemp[i]);
             }
-            dObjectsTemp[i].oIndexNumber = 1+i;
+            
         }
     }
     public static void RemoveDuplicatesInDataBases(List<DataBaseObject> dObjectsTemp, List<DataBaseObject> dObjectsFloraTemp, List<DataBaseObject> dObjectsFaunaTemp, List<DataBaseObject> dObjectsMineralTemp)
@@ -134,6 +134,7 @@ public class DataBaseMain : MonoBehaviour {
         {
             if (dObjectsTemp[i].oUIObject == null)
             {
+                dObjectsTemp[i].oIndexNumber = 1 + i;
                 dObjectsTemp[i].oUIObject = (GameObject)Instantiate(dObjectsTemp[i].oUIPrefab);
                 dObjectsTemp[i].oUIObject.transform.SetParent(canvas.transform);
                 dObjectsTemp[i].oUIObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1156);
