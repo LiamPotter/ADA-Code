@@ -22,7 +22,7 @@ public class DataBaseObject:MonoBehaviour{
     [HideInInspector]
     public string oFlorahabitat;
     [HideInInspector]
-    public int oFloraType;
+    public int oFloraType;//0 for Tree, 1 for Flower, 2 for Fungus
     [HideInInspector]
     public int oPlanetLifeFormAmount;
     [HideInInspector]

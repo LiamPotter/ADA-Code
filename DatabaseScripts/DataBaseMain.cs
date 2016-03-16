@@ -141,10 +141,10 @@ public class DataBaseMain : MonoBehaviour {
                 dObjectsTemp[i].oUIObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 90);
                 dObjectsTemp[i].oUIObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                 if (dObjectsTemp[i] == dObjectsTemp[0])
-                    dObjectsTemp[i].oUIObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-250, -155, 0);
+                    dObjectsTemp[i].oUIObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-250, -25, 0);
                 else
                 {
-                    dObjectsTemp[i].oUIObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-250, -155-paddingInt*i, 0);
+                    dObjectsTemp[i].oUIObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-250, -25-paddingInt*i, 0);
                 }
                
                 dObjectsTemp[i].oUIObject.name = dObjectsTemp[i].oName + " UI";
@@ -159,40 +159,54 @@ public class DataBaseMain : MonoBehaviour {
                     {
                         case 2:
                             dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uObjectType.text = "Planet";
-                            dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = dObjectsTemp[i].oPlanetLifeFormAmount.ToString();
-                            dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra2.text = dObjectsTemp[i].oPlanetSignsOfIntelligence.ToString();
+                            dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = "Life Form Amount: "+dObjectsTemp[i].oPlanetLifeFormAmount.ToString();
+                            dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra2.text = "Signs of Intelligence: "+dObjectsTemp[i].oPlanetSignsOfIntelligence.ToString();
                             break;
                         case 1:
                             dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uObjectType.text = "Fauna";
                             switch (dObjectsTemp[i].oDiet)
                             {
                                 case 2:
-                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = "Carnivore";
+                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = "Diet: Carnivore";
                                     break;
                                 case 1:
-                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = "Herbivore";
+                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = "Diet: Herbivore";
                                     break;
                                 default:
-                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = "Omnivore";
+                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = "Diet: Omnivore";
                                     break;
                             }
                             switch (dObjectsTemp[i].oBehaviourNumber)
                             {
                                 case 2:
-                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra2.text = "Docile";
+                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra2.text = "Behaviour: Docile";
                                     break;
                                     
                                 case 1:
-                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra2.text = "Aggressive";
+                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra2.text = "Behaviour: Aggressive";
                                     break;
                                 default:
-                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra2.text = "Passive";
+                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra2.text = "Behaviour: Passive";
                                     break;
                             }
                             
                             break;
                         default:
                             dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uObjectType.text = "Flora";
+                            switch (dObjectsTemp[i].oFloraType)
+                            {
+                                case 2:
+                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = "Type: Tree";
+                                    break;
+
+                                case 1:
+                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = "Type: Flower";
+                                    break;
+                                default:
+                                    dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra1.text = "Type: Fungus";
+                                    break;
+                            }
+                            dObjectsTemp[i].oUIObject.GetComponentInChildren<UIObjectDropdown>().uExtra2.text = "Habitat: " + dObjectsTemp[i].oFlorahabitat;
                             break;
                     }
                    
